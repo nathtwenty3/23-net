@@ -1,0 +1,23 @@
+/* body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgb(32, 32, 83);
+    background: url(background.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+} */
+
+body {
+    background-image: url('../images/wallpeper5.jpg'); 
+    background-size: cover;
+    /* backdrop-filter: blur(8px); */
+}
+.card{
+    border: 2px solid rgba(255, 255, 255, 0.325);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0 .2);
+    color: #fff;
+    border-radius: 20px;
+}
