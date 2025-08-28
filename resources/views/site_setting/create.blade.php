@@ -8,14 +8,7 @@
                 <strong>Success !</strong> {{ session('success') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-        @elseif (Session::has('error'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <i class="icofont-danger-circled fs-4 me-2"></i>
-                <strong>Error !</strong> {{ session('error') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
         @endif
-
         @if ($errors->any()){
             <div class="alert alert-danger">
                 <ul>
@@ -72,10 +65,6 @@
                                     <div class="form-text text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            {{-- <div class="mb-3">
-                                <label for="inputImage" class="form-label"> <strong>Image:</strong> </label>
-                                <input type="file" name="logo" class="form-control" id="inputImage">
-                            </div> --}}
                             <button type="submit" class="btn btn-primary">Add</button>
                         </form><!--end form-->
                     </div><!--end card-body-->

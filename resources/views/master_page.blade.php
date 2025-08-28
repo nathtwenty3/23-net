@@ -87,11 +87,12 @@
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search...">
                     <button class="btn btn-outline-light" type="submit">Search</button>
-                    <button class="btn btn-light ms-2" type="button">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+
+                    <button class="btn btn-outline-light ms-5" type="button">
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
                     </button>
-                    <button class="btn btn-outline-danger ms-2" type="button">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    <button class="btn btn-light ms-2" type="button">
+                        <a class="nav-link" href="{{ route('register') }}">Register</a>
                     </button>
                 </form>
                 {{-- <ul class="navbar-nav ms-auto">

@@ -125,7 +125,7 @@
 
                                                                 <td class="text-end">                                                       
                                                                     <a href="{{ route('site_setting.edit', $row->id)}}"><i class="las la-pen text-secondary fs-18"></i></a>
-                                                                    <a href="{{ route('site_setting.delete', $row->id)}}"><i class="las la-trash-alt text-secondary fs-18"></i></a>
+                                                                    <a href="{{ route('site_setting.delete', $row->id)}}"><i class="las la-trash-alt text-danger fs-18"></i></a>
                                                                 </td>
                                                             </tr>                                                                               
                                                         @endforeach
