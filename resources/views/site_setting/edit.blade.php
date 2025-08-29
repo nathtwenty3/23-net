@@ -1,7 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-xxl">                    
+    <div class="container-xxl">          
+        @if ($errors->any()){
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            }
+        @endif          
                         <div class="row">
                             <div class="col-md-12 col-lg-12">
                                 <div class="card">
@@ -44,8 +54,13 @@
                                             <div class="mb-3">
                                                 <label for="inputImage" class="form-label"><strong>Image:</strong></label>
                                                 <input type="file" name="logo" class="form-control @error('image') is-invalid @enderror" id="inputImage" value="{{ $row->logo }}">
-                                                <img src="{{asset('uploads/sites/' . $row->logo) }}" alt="Image" width="70" class="mt-2" id="previewImage">
-                                                {{-- <img id="previewImage" src="preview_image" width="70" class="mt-2" style="display: none;"> --}}
+                                                
+                                                @if ($row->logo)
+                                                    <img id="previewImage" src="{{ asset('uploads/sites/' . $row->logo) }}" alt="Preview" width="70" class="mt-2">
+                                                @else
+                                                    <img id="previewImage" alt="Preview" width="70" class="mt-2" style="display:none;">
+                                                @endif
+
                                                 @error('image')
                                                 <div class="form-text text-danger">{{ $message }}</div>
                                                 @enderror

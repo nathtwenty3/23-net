@@ -60,7 +60,7 @@
                             <div class="mb-3">
                                 <label for="inputImage" class="form-label"><strong>Image:</strong></label>
                                 <input type="file" name="logo" class="form-control @error('image') is-invalid @enderror" id="inputImage">
-                                <img  id="previewImage" src="preview_image" width="70" class="mt-2" style="display: none;"  >
+                                <img  id="previewImage" src="preview_image" width="70" class="mt-2" style="display: none;">
                                 @error('image')
                                     <div class="form-text text-danger">{{ $message }}</div>
                                 @enderror

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SiteSetting;
 use Illuminate\Http\Request;
+use Exception;
 
 class SiteSettingController extends Controller
 {
@@ -40,8 +41,7 @@ class SiteSettingController extends Controller
         ]);
 
         try{
-
-            if ($request->hasFile('logo')) {
+            if ($request->hasFile('logo')) {         
                 $file = $request->file('logo');
                 $extention = $file->getClientOriginalExtension();
                 $filename = date('YmdHis') . '.' . $extention;
@@ -49,7 +49,7 @@ class SiteSettingController extends Controller
                 $imagePath = $filename;
             }
             SiteSetting::create([
-                'title'=> $request->title,
+                'title'     => $request->title,
                 'description'=> $request->description,
                 'content'   => $request->input('content'),
                 'facebook'  => $request->facebook,
@@ -59,7 +59,7 @@ class SiteSettingController extends Controller
             ]);
             return redirect()->route('site_setting.index')->with('success', 'Add successfully.');
         }
-        catch (\Exception $e) {
+        catch (Exception $e) {
             return redirect()->back()->with('error','Error: '.$e->getMessage());
         }
     }
@@ -98,25 +98,36 @@ class SiteSettingController extends Controller
         ]);
 
         try {
-
-            if ($request->hasFile('logo')) {
+            if ($request->hasFile('logo')) {        #check ប្រសិនបើមាន file
                 $file = $request->file('logo');
                 $extention = $file->getClientOriginalExtension();
                 $filename = date('YmdHis') . '.' . $extention;
                 $file->move(public_path('uploads/sites'), $filename);
                 $imagePath = $filename;
+
+                # លុបរូបចាស់ប្រសិនបើមាន
+                if (file_exists(public_path('uploads/sites/' . $row->logo))) {
+                    unlink(public_path('uploads/sites/' . $row->logo));
+                }
             }
-            $row->update([
+            
+            # យករូបចាស់នៅប្រសិនបើមិនមាន file upload ថ្មី
+            else {
+                $imagePath = $row->logo;
+            }
+
+            $row->update([  
                 'title' => $request->title,
                 'description' => $request->description,
                 'content' => $request->input('content'),
                 'facebook' => $request->facebook,
                 'telegram' => $request->telegram,
                 'youtube' => $request->youtube,
-                'logo' => isset($imagePath) ? $imagePath : null
+                'logo' => $imagePath,
             ]);
+
             return redirect()->route('site_setting.index')->with('success', 'Update successfully.');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return redirect()->back()->with('error', 'Error: ' . $e->getMessage());
         }
     }

@@ -922,9 +922,13 @@
                     preview.src = URL.createObjectURL(file);
                     preview.style.display = 'block';
                 } else {
-                    preview.src = 'preview_image';
-                    preview.style.display = 'none';
+                    if (!preview.getAttribute('src')) {
+                        preview.style.display = 'none';
+                    }
+                    // preview.src = '';
+                    // preview.style.display = 'none';
                 }
+                
             });
     </script>
 
