@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\SiteSetting;
 use Illuminate\Http\Request;
 use Exception;
-
 class SiteSettingController extends Controller
 {
     /**
@@ -55,11 +54,12 @@ class SiteSettingController extends Controller
                 'facebook'  => $request->facebook,
                 'telegram'  => $request->telegram,
                 'youtube'   => $request->youtube,
-                'logo'      => isset($imagePath) ? $imagePath : null
+                'logo'      => isset($imagePath) ? $imagePath : null,
             ]);
+
             return redirect()->route('site_setting.index')->with('success', 'Add successfully.');
         }
-        catch (Exception $e) {
+        catch (\Exception $e) {
             return redirect()->back()->with('error','Error: '.$e->getMessage());
         }
     }
@@ -94,27 +94,28 @@ class SiteSettingController extends Controller
             'facebook' => 'nullable|max:100',
             'telegram' => 'nullable|max:100',
             'youtube' => 'nullable|max:100',
-            'logo' => 'image|mimes:jpeg,png,jpg|max:2048'
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
-
+        
         try {
-            if ($request->hasFile('logo')) {        #check ប្រសិនបើមាន file
+
+            # យករូបភាពចាស់បើគ្មានការប្ដូររូបភាពថ្មី
+            $imagePath = $row->logo;
+
+            if ($request->hasFile('logo')) {
+
                 $file = $request->file('logo');
                 $extention = $file->getClientOriginalExtension();
                 $filename = date('YmdHis') . '.' . $extention;
                 $file->move(public_path('uploads/sites'), $filename);
                 $imagePath = $filename;
 
-                # លុបរូបចាស់ប្រសិនបើមាន
-                if (file_exists(public_path('uploads/sites/' . $row->logo))) {
+                # លុបរូបចាស់ប្រសិនបើមាន​
+                if ($row->logo && file_exists(public_path('uploads/sites/' . $row->logo))) {
                     unlink(public_path('uploads/sites/' . $row->logo));
                 }
             }
-            # យករូបចាស់នៅប្រសិនបើមិនមាន file upload ថ្មី
-            else {
-                $imagePath = $row->logo;
-            }
-
+            
             $row->update([  
                 'title' => $request->title,
                 'description' => $request->description,
@@ -124,10 +125,10 @@ class SiteSettingController extends Controller
                 'youtube' => $request->youtube,
                 'logo' => $imagePath,
             ]);
+            return redirect()->route('site_setting.index')->with('success', 'Add successfully.');
 
-            return redirect()->route('site_setting.index')->with('success', 'Update successfully.');
         } catch (Exception $e) {
-            return redirect()->back()->with('error', 'Error: ' . $e->getMessage());
+           dd($e->getMessage());
         }
     }
 

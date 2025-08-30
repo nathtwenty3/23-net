@@ -352,6 +352,9 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('site_setting.index') }}">Site Setting</a>
                                     </li><!--end nav-item-->
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('menu.index') }}">Menu</a>
+                                    </li><!--end nav-item-->
                                 </ul><!--end nav-->
                             </div><!--end startbarDashboards-->
                         </li><!--end nav-item-->
@@ -905,28 +908,21 @@
                 });
             }, 2000);
         });
-        // document.addEventListener("DOMContentLoaded", function() {
-        // setTimeout(function() {
-        //     var alert = document.getElementById('alert');
-        //     if(alert){
-        //         // alert.classList.remove('show');
-        //         // alert.classList.add('hide');
-        //         alert.classList.remove('');
-        //     }
-        // }, 2000);
-        // });
+
         document.getElementById('inputImage').addEventListener('change', function (event) {
                 const [file] = event.target.files;
                 const preview = document.getElementById('previewImage');
                 if (file) {
                     preview.src = URL.createObjectURL(file);
                     preview.style.display = 'block';
-                } else {
+                } 
+                else {
                     preview.src = '';
                     preview.style.display = 'none';
                 }
                 
-            });
+        });
+
     </script>
 
     </script>

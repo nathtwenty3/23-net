@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\SiteSettingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
@@ -34,4 +35,11 @@ Route::post('site_setting-store',[SiteSettingController::class,'store'])->name('
 Route::get('site_setting-edit/{id}',[SiteSettingController::class,'edit'])->name('site_setting.edit');
 Route::put('site_setting-update/{id}',[SiteSettingController::class,'update'])->name('site_setting.update');
 Route::get('site_setting-delete/{id}',[SiteSettingController::class,'destroy'])->name('site_setting.delete');
+
+Route::get('menu-index',[MenuController::class,'index'])->name('menu.index');
+Route::get('menu-create',[MenuController::class,'create'])->name('menu.create');
+Route::post('menu-store',[MenuController::class,'store'])->name('menu.store');
+Route::get('menu-edit/{id}',[MenuController::class,'edit'])->name('menu.edit');
+Route::put('menu-update/{id}',[MenuController::class,'update'])->name('menu.update');
+Route::get('menu-delete/{id}',[MenuController::class,'destroy'])->name('menu.delete');
 

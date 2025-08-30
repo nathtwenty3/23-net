@@ -9,7 +9,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
-        @if ($errors->any()){
+        {{-- @if ($errors->any()){
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -18,7 +18,7 @@
                 </ul>
             </div>
             }
-        @endif
+        @endif --}}
         <div class="row">
             <div class="col-md-12 col-lg-12">
                 <div class="card">
@@ -34,8 +34,10 @@
                             @csrf
                             <div class="mb-2">
                                 <label for="title" class="form-label">Title</label>
-                                <input class="form-control" name="title" type="text"placeholder="Enter Title" />
-                                <small>Error Message</small>
+                                <input class="form-control @error('title') is-invalid @enderror" value="{{ old('title', $row->title ?? '') }}" name="title" type="text"placeholder="Enter Title"/>
+                                @error('title')
+                                    <div class="form-text text-danger">{{ $message }} </div>
+                                @enderror
                             </div>
                             <div class="mb-2">
                                 <label for="description" class="form-label">Description</label>

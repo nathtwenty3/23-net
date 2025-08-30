@@ -53,10 +53,10 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label for="inputImage" class="form-label"><strong>Image:</strong></label>
-                                                <input type="file" name="logo" class="form-control @error('image') is-invalid @enderror" id="inputImage" value="{{ $row->logo }}">
-                                                
+                                                <input type="file" name="logo" class="form-control @error('image') is-invalid @enderror" id="inputImage" value="{{ $row->logo }}"> 
+                                                  
                                                 @if ($row->logo)
-                                                    <img id="previewImage" src="{{ asset('uploads/sites/' . $row->logo) }}" alt="Preview" width="70" class="mt-2">
+                                                    <img id="previewImage" src="{{ asset('uploads/sites/'. $row->logo) }}" alt="Preview" width="70" class="mt-2">
                                                 @else
                                                     <img id="previewImage" alt="Preview" width="70" class="mt-2" style="display:none;">
                                                 @endif
