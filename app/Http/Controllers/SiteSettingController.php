@@ -110,7 +110,6 @@ class SiteSettingController extends Controller
                     unlink(public_path('uploads/sites/' . $row->logo));
                 }
             }
-            
             # យករូបចាស់នៅប្រសិនបើមិនមាន file upload ថ្មី
             else {
                 $imagePath = $row->logo;

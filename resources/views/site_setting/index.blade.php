@@ -120,9 +120,8 @@
                                                                 <td>{{ $row['telegram']}}</td>
                                                                 <td>{{ $row['youtube']}}</td>
                                                                 <td>
-                                                                    <img src="{{asset ('uploads/sites/'. $row->logo) }}" alt="" width="50">
+                                                                    <img src="{{asset ('uploads/sites/'. $row->logo) }}" alt="" width="60">
                                                                 </td>
-
                                                                 <td class="text-end">                                                       
                                                                     <a href="{{ route('site_setting.edit', $row->id)}}"><i class="las la-pen text-secondary fs-18"></i></a>
                                                                     <a href="{{ route('site_setting.delete', $row->id)}}"><i class="las la-trash-alt text-danger fs-18"></i></a>

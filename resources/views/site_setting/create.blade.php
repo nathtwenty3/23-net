@@ -39,11 +39,11 @@
                             </div>
                             <div class="mb-2">
                                 <label for="description" class="form-label">Description</label>
-                                <textarea class="form-control" name="description" type="text" placeholder="Enter Description"></textarea>
+                                <textarea class="form-control"  rows="3"  name="description" type="text" placeholder="Enter Description"></textarea>
                             </div>
                             <div class="mb-2">
                                 <label for="content" class="form-label">Content</label>
-                                <textarea class="form-control" name="content" type="text" placeholder="Enter content"></textarea>
+                                <textarea class="form-control" rows="3" name="content" type="text" placeholder="Enter content"></textarea>
                             </div>
                             <div class="mb-2">
                                 <label for="facebook" class="form-label">Facebook</label>
