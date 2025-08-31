@@ -15,6 +15,13 @@ class SiteSetting extends Model
         'facebook',
         'telegram',
         'youtube',
-        'logo'
+        'logo',
     ];
+    
+    // public function User(){
+    //     return $this->belongsTo(User::class,'updated_by','id','user_id');
+    //     return $this->belongsTo(User::class,'created_by','id','user_id');
+    // }
 }
+
+

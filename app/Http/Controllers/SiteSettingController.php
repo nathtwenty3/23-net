@@ -59,7 +59,7 @@ class SiteSettingController extends Controller
 
             return redirect()->route('site_setting.index')->with('success', 'Add successfully.');
         }
-        catch (\Exception $e) {
+        catch (Exception $e) {
             return redirect()->back()->with('error','Error: '.$e->getMessage());
         }
     }
@@ -98,7 +98,6 @@ class SiteSettingController extends Controller
         ]);
         
         try {
-
             # យករូបភាពចាស់បើគ្មានការប្ដូររូបភាពថ្មី
             $imagePath = $row->logo;
 
@@ -139,7 +138,7 @@ class SiteSettingController extends Controller
     {
         $site = SiteSetting::findOrFail($id);
 
-        if ($site->logo && file_exists(public_path($site->logo))) {
+        if ($site->logo && file_exists(public_path('uploads/sites/' .$site->logo))) {
             unlink(public_path('uploads/sites/' . $site->logo));
         }
         $site->delete();

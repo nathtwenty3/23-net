@@ -2,12 +2,12 @@
 @section('content')
 <div class="container-xxl"> 
                     <div class="row">
-                        {{-- @if (Session::has('success'))
+                        @if (Session::has('success'))
                             <div class="alert alert-success alert-dismissible fade show h-5" role="alert">
-                                <strong>Success !</strong> {{ session('success') }}
+                                <strong>Success !</strong> {{ session('success')}}
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
-                        @endif --}}
+                        @endif
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
@@ -79,7 +79,6 @@
                                     </div><!--end row-->                                  
                                 </div><!--end card-header-->
                                 <div class="card-body pt-0">
-                                    
                                     <div class="table-responsive">
                                         <table class="table mb-0 checkbox-all" id="datatable_1">
                                             <thead class="table-light container">

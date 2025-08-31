@@ -29,17 +29,15 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
-        // $validated = $request->validate([
-        //     'name' => 'required|unique:banners|max:100',
-        //     'description' => 'max:200'
-        // ]);
+        $validated = $request->validate([
+            'name' => 'required|unique:banners|max:100',
+            'description' => 'max:200'
+        ]);
 
-        // Banner::create([
-        //     'name' => $request->name,
-        //     'description' => $request->description
-        // ]);
-
-        // return redirect()->route('banner.index');
+        Banner::create([
+            'name' => $request->name,
+            'description' => $request->description
+        ]);
         return redirect()->route('banner.index')->with('success', 'Add successfully.');
     }
 
@@ -76,8 +74,7 @@ class BannerController extends Controller
             'name' => $request->name,
             'description' => $request->description
         ]);
-        // return redirect()->back()->with('success', 'Add successfully.');
-        return redirect()->route('banner.index')->with('success', 'Add successfully.');
+        return redirect()->route('banner.index')->with('success', 'Edit successfully.');
     }
 
     /**

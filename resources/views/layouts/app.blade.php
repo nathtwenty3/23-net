@@ -344,16 +344,19 @@
                                         <a class="nav-link" href="{{ route('role.index') }}">Roles</a>
                                     </li><!--end nav-item-->
                                     <li class="nav-item">
-                                        <a class="nav-link" href="ecommerce-index.html">User</a>
+                                        <a class="nav-link" href="{{ route('user.index') }}">User</a>
                                     </li><!--end nav-item-->
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('banner.index') }}">Banner</a>
                                     </li><!--end nav-item-->
                                     <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('menu.index') }}">Menu</a>
+                                    </li><!--end nav-item-->
+                                    <li class="nav-item">
                                         <a class="nav-link" href="{{ route('site_setting.index') }}">Site Setting</a>
                                     </li><!--end nav-item-->
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('menu.index') }}">Menu</a>
+                                        <a class="nav-link" href="{{ route('post.index') }}">Post</a>
                                     </li><!--end nav-item-->
                                 </ul><!--end nav-->
                             </div><!--end startbarDashboards-->

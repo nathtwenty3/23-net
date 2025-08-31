@@ -2,20 +2,6 @@
 
 @section('content')
     <div class="container-xxl">
-        @if (Session::has('success'))
-            <div class="alert alert-success alert-dismissible fade show " role="alert" id="alert">
-                <i class="icofont-check-circled fs-4 me-2"></i>
-                <strong>Success !</strong> {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-        @if (Session::has('error'))
-            <div class="alert alert-danger alert-dismissible fade show " role="alert" id="alert">
-                <i class="icofont-warning-alt fs-4 me-2"></i>
-                <strong>Error !</strong> {{ session('error') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>    
-        @endif
         <div class="row">
             <div class="col-md-12 col-lg-12">
                 <div class="card">

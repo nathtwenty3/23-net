@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-startbar="light" data-bs-theme="light">
+<html lang="en" dir="ltr" data-startbar="light" data-bs-theme="dark">
 
 <!-- Mirrored from mannatthemes.com/rizz/default/auth-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 09 May 2025 08:19:04 GMT -->
 <head>
@@ -25,7 +25,7 @@
 
     
     <!-- Top Bar Start -->
-<body class="bg-dark">
+<body>
         <!--end topbar-->
     <div class="container-xxl">
         <div class="row vh-100 d-flex justify-content-center">
@@ -63,17 +63,17 @@
 
                                             <div class="input-group">
                                                 <input id="password" type="password" class="form-control text- @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Enter password">
-                                                    {{-- <i class="input-group-text iconoir-eye fs-5" id="togglePassword" style="cursor: pointer;"></i> --}}
-                                                {{-- <span class="input-group">
+                                                    {{-- <i class="input-group-text iconoir-eye fs-5" id="togglePassword" style="cursor: pointer;"></i>
+                                                <span class="input-group">
                                                     <i class="iconoir-eye fs-5" id="togglePassword" style="cursor: pointer;"></i>
                                                 </span> --}}
+                                                
+                                                @error('password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
-
-                                            @error('password')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
 
                                         <div class="form-group row mt-3">
                                             <div class="col-sm-6">

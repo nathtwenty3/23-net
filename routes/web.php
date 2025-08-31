@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\SiteSettingController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 
@@ -14,6 +17,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('users-index',[UserController::class,'index'])->name('user.index');
+
 
 Route::get('role-index',[RoleController::class,'index'])->name('role.index');
 Route::get('role-create',[RoleController::class,'create'])->name('role.create');
@@ -42,4 +48,11 @@ Route::post('menu-store',[MenuController::class,'store'])->name('menu.store');
 Route::get('menu-edit/{id}',[MenuController::class,'edit'])->name('menu.edit');
 Route::put('menu-update/{id}',[MenuController::class,'update'])->name('menu.update');
 Route::get('menu-delete/{id}',[MenuController::class,'destroy'])->name('menu.delete');
+
+Route::get('post-index',[PostController::class,'index'])->name('post.index');
+Route::get('post-create',[PostController::class,'create'])->name('post.create');
+Route::post('post-store',[PostController::class,'store'])->name('post.store');
+Route::get('post-edit/{id}',[PostController::class,'edit'])->name('post.edit');
+Route::put('post-update/{id}',[PostController::class,'update'])->name('post.update');
+Route::get('post-delete/{id}',[PostController::class,'destroy'])->name('post.delete');
 
